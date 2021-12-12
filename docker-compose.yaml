@@ -1,49 +1,9 @@
-# version: '3'
-# services:
-#   my-app:
-#   #   image: lexferramirez/my-node-api-app:1.0
-#   #   ports:
-#   #     - 3000:6000
-#     restart: always
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     environment:
-#       - MONGO_DB_USERNAME=admin
-#       - MONGO_DB_PWD=password
-#     ports:
-#       - '6000:6000'
-#   mongodb:
-#     image: mongo
-#     ports:
-#       - 7000:27017
-#     environment:
-#       - MONGO_INITDB_ROOT_USERNAME=admin
-#       - MONGO_INITDB_ROOT_PASSWORD=password
-#     volumes:
-#       #[volume reference]:ruta donde mongo persite la data dentro del contenedor
-#       #cuando se regenere el contenedor la data de "mongo-data" en el host sera replicada en "/data/db" del contenedor
-#       - mongo-data:/data/db
-#   mongo-express:
-#     image: mongo-express
-#     restart: always
-#     # depends_on:
-#     #   - mongo
-#     ports:
-#       - 8080:8081
-#     environment:
-#       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
-#       - ME_CONFIG_MONGODB_ADMINPASSWORD=password
-
-# volumes: 
-#   #nombre de la referencia del volumen el cual sera usado en el contenedor
-#   mongo-data:
-#     #crea el fisica storage donde se almacenara la informacion
-#     driver: local
-
 version: '3'
 
 services:
+  #   image: lexferramirez/my-node-api-app:1.0
+  #   ports:
+  #     - 3000:6000
   web:
     container_name: nodeapi
     restart: always
