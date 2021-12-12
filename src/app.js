@@ -5,12 +5,12 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect("mongodb://localhost/rest-api-example", {
+  .connect(`mongodb://mongo/mydatabase`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((db) => console.log("DB is connected"))
-  .catch((err) => console.log(err));
+  .then((db) => console.log("DB is connected to " + db.connection.host))
+  .catch((err) => console.error(err));
 
 //settings
 app.set("port", process.env.PORT || 6000);
